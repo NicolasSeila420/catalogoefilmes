@@ -34,4 +34,25 @@
             <p>Nenhum filme cadastrado ainda</p>
         </div>
 
+        <script>
+            const catalogo = [];
+
+            const form = document.getElementById('cadastro-filme');
+            const listaFilmesContainer = document.getElementById('lista-filmes');
+
+            function removerFilme(indice, elementoDOM){
+
+                catalogo.splice(indice, 1);
+
+                elementDOM.remove();
+
+                if (catalogo.length === 0) {
+                    listaFilmesContainer.innerHTML = '<p>Nenhum filme cadastrado ainda.</P>';
+                }
+
+                console.log(`Filme no índice ${indice} removido. Catálogo atualizado:`, catalogo);
+            }
+
+
+
 
