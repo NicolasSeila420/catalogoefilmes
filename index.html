@@ -53,6 +53,13 @@
                 console.log(`Filme no índice ${indice} removido. Catálogo atualizado:`, catalogo);
             }
 
+            function rederizarFilme(filme, indice){
+
+                if (catalogo.length === 1) {
+                    listaFilmesContainer.innerHTML = '';
+                }
+            }
+
 
 
 
