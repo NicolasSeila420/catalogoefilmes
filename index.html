@@ -58,6 +58,12 @@
                 if (catalogo.length === 1) {
                     listaFilmesContainer.innerHTML = '';
                 }
+
+                const filmeDiv = document.createElement('div');
+                filmeDiv.classList.add('filme-item');
+
+                const tituloH3 = document.createElement('h3');
+                tituloH3.textContent = filme.titulo;
             }
 
 
