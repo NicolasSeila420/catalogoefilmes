@@ -72,3 +72,8 @@ margin-bottom: 10px;
 background-color:
 #dc3545;
 }
+.filme-item .btn-remover:hover {
+background-color:
+#c82333;
+}
+</style>
