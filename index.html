@@ -67,6 +67,25 @@
 
                 const sinopseP = document.createElement('p');
                 sinopseP.textContent = filme.sinopse;
+
+                const removerBotao =  document.createElement('button')
+                removerBotao.textContent = 'Remover';
+                removerBotao.classList.add('btn-remover');
+
+                removerBotao.addEventListener('click', () => {
+
+                    removerFilme(indice, filmeDiv);
+                });
+
+                filmeDiv.appendChild(tituloH3);
+                filmeDiv.appendChild(sinopseP);
+                filmeDiv.appendChild(removerBotao);
+
+                listaFilmesContainer.appendChild(filmeDiv);
+            }
+            
+            function adicionarFilme(evento) {
+                evento.preventDefault();
             }
 
 
