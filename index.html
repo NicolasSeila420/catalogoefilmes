@@ -14,40 +14,36 @@
     <form id="cadastro-filme">
           <h2>Adicionar Novo Filme</h2>
           <div>
-          <label for="titulo">Título do Filme:</label>
-          <input type="text" id="titulo" required>
+              <label for="titulo">Título do Filme:</label>
+              <input type="text" id="titulo" required>
           </div>
 
           <div>
-            <label for="sinopse">Sinopse</label>
-            <textarea id="sinopse" require></textarea>
+             <label for="sinopse">Sinopse</label>
+             <textarea id="sinopse" require></textarea>
           </div>
 
-          <button type="submit">Adicionar Filme</button>
-        </form>
+        <button type="submit">Adicionar Filme</button>
+    </form>
 
-        <hr>
+    <hr>
 
-        <h2>Minha Lista de Filmes</h2>
+    <h2>Minha Lista de Filmes</h2>
 
-        <div id="lista-filmes">
-            <p>Nenhum filme cadastrado ainda</p>
-        </div>
+    <div id="lista-filmes">
+        <p>Nenhum filme cadastrado ainda</p>
+    </div>
 
-        <script>
-            const catalogo = [];
+    <script>
+        const catalogo = [];
 
-            const form = document.getElementById('cadastro-filme');
-            const listaFilmesContainer = document.getElementById('lista-filmes');
+        const form = document.getElementById('cadastro-filme');
+        const listaFilmesContainer = document.getElementById('lista-filmes');
 
-            function removerFilme(indice, elementoDOM){
-
-                catalogo.splice(indice, 1);
-
-                elementDOM.remove();
+        function removerFilme(indice, elementoDOM){
 
                 if (catalogo.length === 0) {
-                    listaFilmesContainer.innerHTML = '<p>Nenhum filme cadastrado ainda.</P>';
+                    listaFilmesContainer.innerHTML = '';
                 }
 
                 console.log(`Filme no índice ${indice} removido. Catálogo atualizado:`, catalogo);
