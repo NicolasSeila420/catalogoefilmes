@@ -3,19 +3,19 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Catálogo de Filmes Fase 1: Cadastro Manual (DOM Básico)</title>
+     <title>Catalogo de Filmes Fase 1: Cadastro Manual (DOM Basico)</title>
 
      <link rel="stylesheet" href="style.css">
 
 </head>
 <body>    
 
-    <h1>Catálogo de Filmes</h1>
+    <h1>Catalogo de Filmes</h1>
 
     <form id="cadastro-filme">
     <h2>Adicionar Novo Filme</h2>
     <div>
-        <label for="titulo">Título do Filme: </label>
+        <label for="titulo">Titulo do Filme: </label>
         <input type="text" id="titulo" required>
         </div>
 
@@ -38,32 +38,32 @@
 <script>
     const API_KEY = 'bbab209a';
     // 1. ARMAZENAMENTO DE DADOS
-    // Array global que irá guardar todos os filmes como Objetos.
+    // Array global que ira guardar todos os filmes como Objetos.
     // Ex: [{ titulo: 'Filme X', sinopse: 'Sinopse Y' }]
     const catalogo = [];
 
    // 2. CAPTURA DE ELEMENTOS DO DOM (Document Object Model)
    // Capturamos os elementos HTML que vamos interagir, usando seus IDs.
    const form = document.getElementById('cadastro-filme');
-   // CORREÇÃO 1: Adicionado o sinal de atribuição (=)
+   // CORRECAO 1: Adicionado o sinal de atribuicao (=)
    const listaFilmesContainer = document.getElementById('lista-filmes');
 
    //------------------------------------------------------------------------------------------
-   // FUNÇÃO DE REMOÇÃO
+   // FUNCAO DE REMOCAO
    //------------------------------------------------------------------------------------------
    /**
     * Remove um filme do array de dados e do elemento HTML na tela.
-    * @param {number} indice A posição do filme no array 'catalogo'.
+    * @param {number} indice A posiCAo do filme no array 'catalogo'.
     * @param {HTMLElement} elementoDOM O elemento <div> do filme a ser removido da tela.
     */
     function removerFilme (indice, elementoDOM) {
-        // A. REMOÇÃO DO ARRAY (Logica)
-        // splice(indice, 1) remove 1 elemento a partir da posição 'indice'.
+        // A. REMOCAO DO ARRAY (Logica)
+        // splice(indice, 1) remove 1 elemento a partir da posicao 'indice'.
         // Isso atualiza o array 'catalogo'.
         catalogo.splice(indice, 1);
 
-        // B. REMOÇÃO DO DOM (Visual)
-        // CORREÇÃO 4: Adicionado elementoDOM.remove() para remover o elemento HTML da tela.
+        // B. REMOCAO DO DOM (Visual)
+        // CORRECAO 4: Adicionado elementoDOM.remove() para remover o elemento HTML da tela.
         elementoDOM.remove();
        
         // Opcional: Atualiza a mensagem da lista se estiver vazia
@@ -71,12 +71,12 @@
               listaFilmesContainer.innerHTML = '<p>Nenhum filme cadastrado ainda.</p>';
         }
 
-        // CORREÇÃO 5: Corrigido o console.log (uso de template string: crases e ${})
-        console.log(`Filme no indice ${indice} removido. Catálogo atualizado:`, catalogo);
+        // CORRECAO 5: Corrigido o console.log (uso de template string: crases e ${})
+        console.log(`Filme no indice ${indice} removido. Catalogo atualizado:`, catalogo);
     }
 
    //-------------------------------------------------------------------------------------
-   //FUNÇÃO RENDERIZAÇÃO
+   //FUNCAOO RENDERIZACAOO
    //-------------------------------------------------------------------------------------
    /** * Cria e exibe a estrutura HTML de um filme na lista.
     * @param {Object} filme O objeto (titulo, sinopse) do filme...
@@ -88,60 +88,60 @@ function renderizarFilme (filme, indice) {
        listaFilmesContainer.innerHTML = '';
 }
 
-     // A. CRIAÇÃO DE ELEMENTOS HTML (document.createElement)
+     // A. CRIACAO DE ELEMENTOS HTML (document.createElement)
 
      // Cria a (div) que sera o continer de cada filme.
      const filmeDiv = document.createElement('div');
-     // Correção 1: 'FilmeDiv' -> 'filmeDiv' (convenção de variáveis)
+     // Correcao 1: 'FilmeDiv' -> 'filmeDiv' (convencao de variaveis)
      filmeDiv.classList.add('filme-item'); // Adiciona uma classe para estilização
 
      // Cria o <h3> para o titulo e define seu texto.
-     // CORREÇÃO 2: Tag "3" -> "h3"
+     // CORRECAO 2: Tag "3" -> "h3"
      const tituloH3 = document.createElement("h3");
-     // CORREÇÃO 3: Faltou o sinal de atribuição (=)
+     // CORRECAO 3: Faltou o sinal de atribuicao (=)
      tituloH3.textContent = filme.titulo;
 
      // Cria o <p> para a sinopse e define seu texto.
-     const sinopseP = document.createElement('p'); // Correção: 'sinopsep' -> 'sinopseP'
+     const sinopseP = document.createElement('p'); // Correcao: 'sinopsep' -> 'sinopseP'
      sinopseP.textContent = filme.sinopse;
 
-     // Cria o botão de remoção.
+     // Cria o botao de remocao.
      const removerBotao = document.createElement('button');
      removerBotao.textContent = 'Remover';
      removerBotao.classList.add('btn-remover');
      
-     // B. DEFINIÇÃO DO EVENTO DE REMOÇÃO (addEventListener)
-     // Anexa a função 'removerFilme' ao clique do botão.
+     // B. DEFINICAO DO EVENTO DE REMOCAO (addEventListener)
+     // Anexa a fucao 'removerFilme' ao clique do botao.
      removerBotao.addEventListener('click', () => {
-           // Ao clicar, chamamos a função, passando o indice (posição) e a propria <div> (filmeDiv)
+           // Ao clicar, chamamos a funcao, passando o indice (posicao) e a propria <div> (filmeDiv)
             removerFilme (indice, filmeDiv);
 });
     // C. ANEXAR ELEMENTOS (appendChild)
-     // Monta a estrutura hierárquica:
+     // Monta a estrutura hierarquica:
      // filmeDiv
      // | - tituloH3
      // | - sinopseP
      // | - removerBotao
      filmeDiv.appendChild(tituloH3);
-     filmeDiv.appendChild(sinopseP); // Correção: 'sinopsep' -> 'sinopseP'
+     filmeDiv.appendChild(sinopseP); // Correcao: 'sinopsep' -> 'sinopseP'
      filmeDiv.appendChild(removerBotao);
      
-       // D. INSERÇÃO NO DOM FINAL
+       // D. INSERCAO NO DOM FINAL
        // Adiciona o filme montado (filmeDiv) dentro do container principal na página.
-    listaFilmesContainer.appendChild(filmeDiv); // Correção: 'listaFilmes Container' -> 'listaFilmesContainer'
+    listaFilmesContainer.appendChild(filmeDiv); // Correcao: 'listaFilmes Container' -> 'listaFilmesContainer'
 }
      //
-       // FUNÇÃO PRINCIPAL DE ADIÇÃO (Manipulador do Formulario)
+       // FUNCAO PRINCIPAL DE ADICAO (Manipulador do Formulario)
      /** Lida com o envio do formulario, captura os dados e salva o filme.
      * @param {Event} evento O evento de 'submit' do formulario.
      */
-     function adicionarFilme (evento) {
-       // 3. Previne o recarregamento da página
-       // O comportamento padrão de um formulario é recarregar a página. O preventDefault() impede isso.
+     function adicionarFilme (evento) {0
+       // 3. Previne o recarregamento da pagina
+       // O comportamento padrao de um formulario e recarregar a pagina. O preventDefault() impede isso.
      evento.preventDefault();
        // 4. Captura os valores dos campos
-       // CORREÇÃO 6: Removido o preventDefault() duplicado.
-       // O comportamento padrão de um formulário é recarregar pagina. O preventDefault() impede isso.
+       // CORRECAO 6: Removido o preventDefault() duplicado.
+       // O comportamento padrao de um formulario e recarregar pagina. O preventDefault() impede isso.
        // evento.preventDefault();
        // 4. Captura os valores dos campos
      
@@ -155,24 +155,24 @@ function renderizarFilme (filme, indice) {
 };
 
      //5. Armazena o filme no Array
-     // O método.push() adiciona o novo objeto no final do array 'catalogo'.
+     // O metodo.push() adiciona o novo objeto no final do array 'catalogo'.
      catalogo.push (novoFilme);
      // 6. Renderiza na Tela
-     // Passamos o novo objeto e seu indice (que sempre o último, ou seja, tamanho - 1)
+     // Passamos o novo objeto e seu indice (que sempre o ultimo, ou seja, tamanho - 1)
      renderizarFilme (novoFilme, catalogo.length - 1);
 
      
      // 7. Limpa o formulario
-     // O método .reset() limpa todos os campos do formulario para o proximo cadastro.
+     // O metodo .reset() limpa todos os campos do formulario para o proximo cadastro.
      form.reset();
 }
      
      
-     // 8. ESCUTANDO O EVENTO DO BOTÃO/FORMULARIO
-     // Anexamos a função adicionarFilme ao evento de 'submit' do formulario.
+     // 8. ESCUTANDO O EVENTO DO BOTAO/FORMULARIO
+     // Anexamos a funcao adicionarFilme ao evento de 'submit' do formulario.
      form.addEventListener('submit', adicionarFilme);
 
-     console.log("JavaScript Carregado. Pronto para iniciar o catálogo!");
+     console.log("JavaScript Carregado. Pronto para iniciar o catalogo!");
 </script>
 
 </body>
