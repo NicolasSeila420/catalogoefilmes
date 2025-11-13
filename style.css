@@ -1,8 +1,8 @@
-/* --- 1. RESET BÁSICO E CONIGURAÇÕES GLOBAIS --- */
+/* --- 1. RESET BASICO E CONIGURACOES GLOBAIS --- */
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho do elemento */
+    box-sizing: border-box; /* Garante que padding e border nao aumentem o tamanho do elemento */
 }
 
 a {
@@ -10,7 +10,7 @@ a {
     text-decoration: none;
 }
 
-/* --- 2. HEADER E NAVEGAÇÃO */
+/* --- 2. HEADER E NAVEGACAO */
 header {
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@ header {
 .logo {
     font-size: 1.8em;
     font-weight: bold;
-    color: #00e0b3; /* Cor de destaque (Verde-água) */
+    color: #00e0b3; /* Cor de destaque (Verde-agua) */
 }
 
 .nav-menu a {
@@ -82,7 +82,7 @@ header {
     border: 1px solid #444;
 }
 
-/* Estilo para a caixa de seleção */
+/* Estilo para a caixa de selecao */
 .filter-dropdown {
     width: auto;
     cursor: pointer;
@@ -95,9 +95,9 @@ header {
 
 .lista-filmes {
     display: grid;
-    gap: 25px; /* Espaçamento entre os cards */
+    gap: 25px; /* Espacamento entre os cards */
 
-    /* A MÁGICA DO RESPONSIVO: Ajuste automático de colunas */
+    /* A MaGICA DO RESPONSIVO: Ajuste automatico de colunas */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
 }
@@ -112,11 +112,11 @@ header {
     border-radius: 10px;
 
     transition: translate 0.3s ease;
-    overflow: hidden; /* Garante que o poster não saia da borda arredondada */
+    overflow: hidden; /* Garante que o poster nao saia da borda arredondada */
 }
 
 .card-filme:hover {
-    transform: translateY(-8px); /* Efeito de elevação sutil do hover */
+    transform: translateY(-8px); /* Efeito de elevacao sutil do hover */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -124,10 +124,10 @@ header {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 2/3; /*   Proporção típica de pôsteres de cinema */
+    aspect-ratio: 2/3; /*   Proporcao tipica de posteres de cinema */
 }
 
-.avaliação {
+.avaliacao {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -169,13 +169,13 @@ header {
 
 /* --- 6.   RESPONSIVIDADE (Ajustes para Telas Menores/Celulares) --- */
 @media (max-width: 768px) {
-    /* Header (Ocultar Links no mobile, mostra o botão do menu) */
+    /* Header (Ocultar Links no mobile, mostra o botao do menu) */
     .nav-menu a {
         display: none;
     }
 
     .menu-toggle {
-        display: block; /* mostra o ícone de menu hamburguer */
+        display: block; /* mostra o icone de menu hamburguer */
     }
 
     /* Controles (Altera a ordem, a busca fica no topo) */
@@ -196,7 +196,7 @@ header {
 
     /* Lista de Filmes (Layout com menos colunas para telas menores) */
     .lista-filmes {
-        /* No celular, a largura mínima para o card é maior, forçando 1 ou 2 colunas */
+        /* No celular, a largura minima para o card e maior, forcando 1 ou 2 colunas */
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
